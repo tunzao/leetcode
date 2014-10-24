@@ -6,9 +6,15 @@ import java.util.Arrays;
 public class Solution {
     public static void main(String[] args) {
         Solution s = new Solution();
-        System.out.println(s.countAndSay(1));
+        System.out.print(s.reverse(-123));
     }
 
+    /**
+     * not solved yet
+     * @param numbers
+     * @param target
+     * @return
+     */
     public int[] twoSum(int[] numbers, int target) {
         int data1 = 0;
         int data2 = 0;
@@ -39,7 +45,7 @@ public class Solution {
 
     /**
      * https://oj.leetcode.com/problems/count-and-say/
-     *
+     * so easy
      * @param n
      * @return
      */
@@ -67,4 +73,24 @@ public class Solution {
         }
         return start;
     }
+
+    /**
+     * https://oj.leetcode.com/problems/reverse-integer/
+     * so easy
+     * @param x
+     * @return
+     */
+    public int reverse(int x) {
+        int y = 0;
+        int flag = x<0 ? -1 : 1;
+        x = Math.abs(x);
+        while (x > 0) {
+            int b = x % 10;
+            y = y*10 + b;
+            x /= 10;
+        }
+
+        return y*flag;
+    }
+
 }
