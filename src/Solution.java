@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Solution {
     public static void main(String[] args) {
         Solution s = new Solution();
-        System.out.print(s.firstMissingPositive(new int[]{1, 1}));
+        System.out.println(Arrays.toString(s.plusOne(new int[]{9, 9, 9})));
     }
 
     /**
@@ -208,5 +208,39 @@ public class Solution {
         return true;
 
     }
+
+    /**
+     *
+     * @see <a>https://leetcode.com/problems/plus-one/</a>
+     * @param digits
+     * @return
+     */
+    public int[] plusOne(int[] digits) {
+        int c = 0;
+        for (int i=digits.length-1; i >= 0; i--) {
+            int a = digits[i] + (i == digits.length - 1 ? 1 : 0) + c;
+            if (a > 9) {
+                c = 1;
+                a %= 10;
+                digits[i] = a;
+            } else {
+                c = 0;
+                digits[i] = a;
+                break;
+            }
+        }
+        if (c == 1) {
+            int[] newDigits = new int[digits.length + 1];
+            newDigits[0] = c;
+            for (int i=0; i<digits.length; i++) {
+                newDigits[i+1] = digits[i];
+            }
+            return newDigits;
+        } else {
+            return digits;
+        }
+    }
+
+
 
 }
