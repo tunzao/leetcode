@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by likuan on 12/22/15.
  * Bulls and Cows
@@ -11,7 +8,7 @@ public class BullsAndCows {
     public String getHint(String secret, String guess) {
         int bulls = 0;
         int cows = 0;
-        Map<Character, Integer> m = new HashMap<Character, Integer>();
+        int[] m = new int[10];
         for (int i = 0; i < secret.length(); i++) {
             char a = secret.charAt(i);
             char b = guess.charAt(i);
@@ -19,27 +16,23 @@ public class BullsAndCows {
             if (a == b) {
                 bulls++;
             } else {
-                Integer ca = m.get(a);
-                if (ca == null) {
-                    ca = 0;
-                }
+                int indexA = a - '0';
+                int ca = m[indexA];
                 if (ca < 0) {
                     // a 在 guess 里出现过, 所以a是cow
                     cows++;
                 }
                 ca += 1;
-                m.put(a, ca);
+                m[indexA] = ca;
 
-                Integer cb = m.get(b);
-                if (cb == null) {
-                    cb = 0;
-                }
+                int indexB = b - '0';
+                Integer cb = m[indexB];
                 if (cb > 0) {
                     // b 在 secret 里出现过, 所以b是cow
                     cows++;
                 }
                 cb -= 1;
-                m.put(b, cb);
+                m[indexB] = cb;
             }
 
         }
