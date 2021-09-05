@@ -5,6 +5,7 @@
 public class ReadWithRead4 extends Reader4 {
 
     /**
+     * https://leetcode-cn.com/problems/read-n-characters-given-read4/
      * @param buf Destination buffer
      * @param n   Number of characters to read
      * @return The number of actual characters read
