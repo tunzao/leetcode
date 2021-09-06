@@ -3,6 +3,11 @@
  */
 public class LengthOfLongestSubstringTwoDistinct {
 
+    /**
+     * https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/
+     * @param s
+     * @return
+     */
     public int lengthOfLongestSubstringTwoDistinct(String s) {
         if (s.length() == 0) {
             return 0;
