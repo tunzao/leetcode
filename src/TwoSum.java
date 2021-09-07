@@ -1,32 +1,45 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
- * Created by likuan on 2017-06-26.
- * <p>
- * <a href="https://leetcode.com/problems/two-sum/">Two Sum</a>
- *
+ * https://leetcode-cn.com/problems/two-sum-iii-data-structure-design/
  * @author likuan
  */
-public class TwoSum {
 
-    public int[] twoSum(int[] numbers, int target) {
-        int[] result = new int[2];
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i < numbers.length; i++) {
-            if (map.containsKey(target - numbers[i])) {
-                result[1] = i;
-                result[0] = map.get(target - numbers[i]);
-                return result;
-            }
-            map.put(numbers[i], i);
-        }
-        return result;
+class TwoSum {
+
+    private Map<Integer, Integer> numbers = new HashMap<>();
+
+    /**
+     * Initialize your data structure here.
+     */
+    public TwoSum() {
+
     }
 
-    public static void main(String[] args) {
-        TwoSum twoSum = new TwoSum();
-        System.out.println(Arrays.toString(twoSum.twoSum(new int[] {-3,4,3,90}, 0)));
+    /**
+     * Add the number to an internal data structure..
+     */
+    public void add(int number) {
+        numbers.put(number, numbers.getOrDefault(number, 0)+1);
+    }
+
+    /**
+     * Find if there exists any pair of numbers which sum is equal to the value.
+     */
+    public boolean find(int value) {
+        for (int key : numbers.keySet()) {
+            int pair = value - key;
+            if (numbers.containsKey(pair) && (key != pair || numbers.get(key) > 1)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
+
+/**
+ * Your TwoSum object will be instantiated and called as such:
+ * TwoSum obj = new TwoSum();
+ * obj.add(number);
+ * boolean param_2 = obj.find(value);
+ */
