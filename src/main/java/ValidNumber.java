@@ -11,7 +11,7 @@ public class ValidNumber {
         System.out.println(s.isNumber("2e10"));
         System.out.println(s.isNumber("2.10e10"));
         System.out.println(s.isNumber("2. "));
-        System.out.println(s.isNumber("."));
+        System.out.println(s.isNumber(""));
         System.out.println(s.isNumber("+.8"));
         System.out.println(s.isNumber("+."));
         System.out.println(s.isNumber("1.e1"));

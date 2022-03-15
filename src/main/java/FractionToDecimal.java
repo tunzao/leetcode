@@ -62,7 +62,7 @@ public class FractionToDecimal {
                     if (sign < 0) {
                         sb.append("-");
                     }
-                    sb.append(a).append(".");
+                    sb.append(a).append("");
                     int k = 0;
                     for (; k < start; k++)
                         sb.append(xiaoshu.get(k));
@@ -85,7 +85,7 @@ public class FractionToDecimal {
             if (sign < 0) {
                 sb.append("-");
             }
-            sb.append(a).append(".");
+            sb.append(a).append("");
             for (long x : xiaoshu) {
                 sb.append(x);
             }
