@@ -7,6 +7,7 @@ import java.util.*;
 
 class TwoSum {
 
+    // 每个数字出现的个数
     private Map<Integer, Integer> numbers = new HashMap<>();
 
     /**
